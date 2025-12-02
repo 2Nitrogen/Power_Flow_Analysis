@@ -84,7 +84,9 @@ $$
 
 : we need to calculate jacobian of mismatch vector $\mathbf{f(x)}$ differentiated by variable $\mathbf{x}$ for NR iteration. We can divide the jacobian into four different sections as below.
 
-$\mathbf{J(x)} := \dfrac{\partial \mathbf{f(x)}}{\partial \mathbf{x}} = \begin{bmatrix} \frac{\partial P}{\partial \theta}, \frac{\partial P}{\partial |V|} \\ \frac{\partial Q}{\partial \theta}, \frac{\partial Q}{\partial |V|} \end{bmatrix} = \begin{bmatrix} \mathbf{J}_{11}, \mathbf{J}_{12} \\ \mathbf{J}_{21}, \mathbf{J}_{22} \end{bmatrix}$
+$$
+\mathbf{J(x)} := \dfrac{\partial \mathbf{f(x)}}{\partial \mathbf{x}} = \begin{bmatrix} \frac{\partial P}{\partial \theta}, \frac{\partial P}{\partial |V|} \\ \frac{\partial Q}{\partial \theta}, \frac{\partial Q}{\partial |V|} \end{bmatrix} = \begin{bmatrix} \mathbf{J}_{11}, \mathbf{J}_{12} \\ \mathbf{J}_{21}, \mathbf{J}_{22} \end{bmatrix}
+$$
 
 4-a. Real Power differentiated by voltage angle ($\frac{\partial P}{\partial \theta}$, $\mathbf{J}_{11}$)
 
