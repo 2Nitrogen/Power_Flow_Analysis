@@ -127,8 +127,7 @@ $$
 $$
 \frac{\partial P_i}{\partial |V_i|}
 = \sum_{k=1, k \neq i}^{N}
-  |V_k|\left(G_{ik} \cos{\theta_{ik}} + B_{ik} \sin{\theta_{ik}}\right)
-+ 2|V_i|G_{ii}
+  |V_k|\left(G_{ik} \cos{\theta_{ik}} + B_{ik} \sin{\theta_{ik}}\right) + 2|V_i|G_{ii}
 $$
 
 $$
@@ -157,8 +156,7 @@ $$
 $$
 \frac{\partial Q_i}{\partial |V_i|}
 = \sum_{k=1, k \neq i}^{N}
-  |V_k|\left(G_{ik} \sin{\theta_{ik}} - B_{ik} \cos{\theta_{ik}}\right)
-- 2|V_i|B_{ii}
+  |V_k|\left(G_{ik} \sin{\theta_{ik}} - B_{ik} \cos{\theta_{ik}}\right) - 2|V_i|B_{ii}
 $$
 
 $$
@@ -174,8 +172,7 @@ $$
 
 $$
 \mathbf{x}^{(s+1)}
-= \mathbf{x}^{(s)}
-- \mathbf{J}(\mathbf{x}^{(s)})^{-1} \mathbf{f}(\mathbf{x}^{(s)})
+= \mathbf{x}^{(s)} - \mathbf{J}(\mathbf{x}^{(s)})^{-1} \mathbf{f}(\mathbf{x}^{(s)})
 $$
 
 ---
