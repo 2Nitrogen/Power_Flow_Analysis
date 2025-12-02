@@ -47,7 +47,9 @@ $$
 
 : In addition, we need to consider shunt power at each bus, specified as Gs and Bs at bus data of .csv file. Each value is divided by $V_{base}^2$ to convert to admittance. Sign is determined by the custom.
 
-$ \left(\mathbf{Y}_{bus} \right)_{ii} -= \dfrac{G_s + jB_s}{V_{base}^2} $
+$$
+\left(\mathbf{Y}_{bus} \right)_{ii} -= \dfrac{G_s + jB_s}{V_{base}^2}
+$$
 
 3. Definition of Variable for NR
 
