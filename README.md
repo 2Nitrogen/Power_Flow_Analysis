@@ -34,9 +34,9 @@ This sections offers detailed explanation on calculations involved in power flow
 
     : Based on Lumped-Equivalent Circuit Model, each element of admittance matrix $\mathbf{Y}_{bus} \in \mathbb{C}^{N}$ can be computed as follows
 
-    $ (\mathbf{Y}_{bus})_{ii} = \sum_{k=1,\,k \neq i}^{N} \left( \cfrac{1}{z_{series}^{ik}} + \cfrac{y_{\text{sh}}^{ik}}{2} \right)$
+    $ ( \mathbf{Y}_{bus} )_{ii} = \sum_{k=1,\,k \neq i}^{N} \left( \cfrac{1}{z_{series}^{ik}} + \cfrac{y_{\text{sh}}^{ik}}{2} \right)$
 
-    $ (\mathbf{Y}_{bus})_{ij} = - 1/z_{series}^{ij} \quad \small{(i \neq j)}$
+    $ ( \mathbf{Y}_{bus} )_{ij} = - 1/z_{series}^{ij} \quad \small{(i \neq j)}$
 
     : In addition, we need to consider shunt power at each bus, specified as Gs and Bs at bus data of .csv file. Each value is divided by $V_{base}^2$ to convert to admittance. Sign is determined by the custom.
 
@@ -86,7 +86,7 @@ This sections offers detailed explanation on calculations involved in power flow
 
     : implement the following iteration rule until termination criteria is satisfied, or until the total number of iteration does not exceed predefined maximum iteration number.
 
-    $ \mathbf{x}^{(s+1)} = \mathbf{x}^{(s)} - \mathbf{J(\mathbf{x}^{(s)})}^{-1} \mathbf{f(\mathbf{x}^{(s)})}$
+    $\mathbf{x}^{(s+1)} = \mathbf{x}^{(s)}-\mathbf{J(\mathbf{x}^{(s)})}^{-1} \mathbf{f(\mathbf{x}^{(s)})}$
 
 ---
 ### Note
