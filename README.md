@@ -53,12 +53,35 @@ $ \left(\mathbf{Y}_{bus} \right)_{ii} -= \dfrac{G_s + jB_s}{V_{base}^2} $
 
 : Note that numbering on each variable element may not correspond to the bus number. That's because we define voltage angle $\theta$ as variables only for PQ and PV buses, and voltage magnitude $|V|$ as variables only for PQ buses for computational efficiency. This also  applies to mismatch vector $\mathbf{f(x)}$ - numbering on power may NOT refer to bus number.
 
-$\mathbf{x} = \begin{bmatrix} \theta_1 \\ \vdots \\ \theta_{N_{pq} + N_{pv}} \\ {|V|}_1 \\ \vdots \\ {|V|}_{N_{pq}} \end{bmatrix} \in \mathbb{R}^{2 \times N_{pq} + N_{pv}}, \quad$
+$$
+\mathbf{x} =
+\begin{bmatrix}
+  \theta_1 \\
+  \vdots \\
+  \theta_{N_{pq} + N_{pv}} \\
+  |V|_1 \\
+  \vdots \\
+  |V|_{N_{pq}}
+\end{bmatrix}
+\in \mathbb{R}^{2 N_{pq} + N_{pv}}
+$$
 
-$\mathbf{f(x)} = \begin{bmatrix} P_1 - P_{G_1} + P_{D_1} \\ \vdots \\ P_{N_{pq} + N_{pv}} - P_{G_{N_{pq} + N_{pv}}} + P_{D_{N_{pq} + N_{pv}}} \\ Q_1 - Q_{G_1} + Q_{D_1} \\ \vdots \\ Q_{N_{pq}} - Q_{G_{N_{pq}}} + Q_{D_{N_{pq}}} \end{bmatrix} \in \mathbb{R}^{2 \times N_{pq} + N_{pv}}$
+$$
+\mathbf{f}(\mathbf{x}) =
+\begin{bmatrix}
+  P_1 - P_{G_1} + P_{D_1} \\
+  \vdots \\
+  P_{N_{pq} + N_{pv}} - P_{G_{N_{pq} + N_{pv}}} + P_{D_{N_{pq} + N_{pv}}} \\
+  Q_1 - Q_{G_1} + Q_{D_1} \\
+  \vdots \\
+  Q_{N_{pq}} - Q_{G_{N_{pq}}} + Q_{D_{N_{pq}}}
+\end{bmatrix}
+\in \mathbb{R}^{2 N_{pq} + N_{pv}}
+$$
+
 
 4. Jacobian
-    
+
 : we need to calculate jacobian of mismatch vector $\mathbf{f(x)}$ differentiated by variable $\mathbf{x}$ for NR iteration. We can divide the jacobian into four different sections as below.
 
 $\mathbf{J(x)} := \dfrac{\partial \mathbf{f(x)}}{\partial \mathbf{x}} = \begin{bmatrix} \frac{\partial P}{\partial \theta}, \frac{\partial P}{\partial |V|} \\ \frac{\partial Q}{\partial \theta}, \frac{\partial Q}{\partial |V|} \end{bmatrix} = \begin{bmatrix} \mathbf{J}_{11}, \mathbf{J}_{12} \\ \mathbf{J}_{21}, \mathbf{J}_{22} \end{bmatrix}$
