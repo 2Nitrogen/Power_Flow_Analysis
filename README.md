@@ -34,13 +34,13 @@ This sections offers detailed explanation on calculations involved in power flow
 
     : Based on Lumped-Equivalent Circuit Model, each element of admittance matrix $\mathbf{Y}_{bus} \in \mathbb{C}^{N}$ can be computed as follows
 
-    $ ( \mathbf{Y}_{bus} )_{ii} = \sum_{k=1,k \neq i}^{N} \left( \cfrac{1}{z_{series}^{ik}} + \cfrac{y_{\text{sh}}^{ik}}{2} \right)$
+    $ \left( \mathbf{Y}_{bus} \right)_{ii} = \sum_{k=1,k \neq i}^{N} \left( \cfrac{1}{z_{series}^{ik}} + \cfrac{y_{\text{sh}}^{ik}}{2} \right)$
 
-    $ ( \mathbf{Y}_{bus} )_{ij} = - 1/z_{series}^{ij} \quad \small{(i \neq j)}$
+    $ \left( \mathbf{Y}_{bus} \right)_{ij} = - 1/z_{series}^{ij} \quad \small{(i \neq j)}$
 
     : In addition, we need to consider shunt power at each bus, specified as Gs and Bs at bus data of .csv file. Each value is divided by $V_{base}^2$ to convert to admittance. Sign is determined by the custom.
 
-    $ (\mathbf{Y}_{bus})_{ii} {-=} \dfrac{G_s + jB_s}{V_{base}^2} $
+    $ \left(\mathbf{Y}_{bus} \right)_{ii} -= \dfrac{G_s + jB_s}{V_{base}^2} $
 
 3. Definition of Variable for NR
 
