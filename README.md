@@ -26,7 +26,7 @@ This sections offers detailed explanation on calculations involved in power flow
 
 1. Power Balance Equation
 
-    $P_{G_i}-P_{D_i} = \sum_{i=1}^{N}{|V_i||V_k|(G_s \cos{\theta_{ik} + B_s \sin{\theta_{ik}}})}\\$
+    $P_{G_i}-P_{D_i} = \sum_{i=1}^{N}{|V_i||V_k|\left(G_s \cos{\theta_{ik} + B_s \sin{\theta_{ik}}}\right)}$
     
     $Q_{G_i}-Q_{D_i} = \sum_{i=1}^{N}{|V_i||V_k|(G_s \sin{\theta_{ik} - B_s \cos{\theta_{ik}}})}$
 
@@ -34,13 +34,13 @@ This sections offers detailed explanation on calculations involved in power flow
 
     : Based on Lumped-Equivalent Circuit Model, each element of admittance matrix $\mathbf{Y}_{bus} \in \mathbb{C}^{N}$ can be computed as follows
 
-    $ ( \mathbf{Y}_{bus} )_{ii} = \sum_{k=1,\,k \neq i}^{N} \left( \cfrac{1}{z_{series}^{ik}} + \cfrac{y_{\text{sh}}^{ik}}{2} \right)$
+    $ ( \mathbf{Y}_{bus} )_{ii} = \sum_{k=1,k \neq i}^{N} \left( \cfrac{1}{z_{series}^{ik}} + \cfrac{y_{\text{sh}}^{ik}}{2} \right)$
 
     $ ( \mathbf{Y}_{bus} )_{ij} = - 1/z_{series}^{ij} \quad \small{(i \neq j)}$
 
     : In addition, we need to consider shunt power at each bus, specified as Gs and Bs at bus data of .csv file. Each value is divided by $V_{base}^2$ to convert to admittance. Sign is determined by the custom.
 
-    $ (\mathbf{Y}_{bus})_{ii} {\,-=} \dfrac{G_s + jB_s}{V_{base}^2} $
+    $ (\mathbf{Y}_{bus})_{ii} {-=} \dfrac{G_s + jB_s}{V_{base}^2} $
 
 3. Definition of Variable for NR
 
@@ -55,7 +55,7 @@ This sections offers detailed explanation on calculations involved in power flow
     
     : we need to calculate jacobian of mismatch vector $\mathbf{f(x)}$ differentiated by variable $\mathbf{x}$ for NR iteration. We can divide the jacobian into four different sections as below.
 
-    $\mathbf{J(x)} := \dfrac{\partial \mathbf{f(x)}}{\partial \mathbf{x}} = \begin{bmatrix} \frac{\partial P}{\partial \theta},\, \frac{\partial P}{\partial |V|} \\ \frac{\partial Q}{\partial \theta},\, \frac{\partial Q}{\partial |V|} \end{bmatrix} = \begin{bmatrix} \mathbf{J}_{11},\, \mathbf{J}_{12} \\ \mathbf{J}_{21},\, \mathbf{J}_{22} \end{bmatrix}$
+    $\mathbf{J(x)} := \dfrac{\partial \mathbf{f(x)}}{\partial \mathbf{x}} = \begin{bmatrix} \frac{\partial P}{\partial \theta}, \frac{\partial P}{\partial |V|} \\ \frac{\partial Q}{\partial \theta}, \frac{\partial Q}{\partial |V|} \end{bmatrix} = \begin{bmatrix} \mathbf{J}_{11}, \mathbf{J}_{12} \\ \mathbf{J}_{21}, \mathbf{J}_{22} \end{bmatrix}$
 
     4-a. Real Power differentiated by voltage angle ($\frac{\partial P}{\partial \theta}$, $\mathbf{J}_{11}$)
 
